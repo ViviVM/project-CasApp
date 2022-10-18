@@ -32,7 +32,7 @@
 
 </template>
 
-<style>
+<style scoped>
 svg{
     height: 30px;
     width: 30px;

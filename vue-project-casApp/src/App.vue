@@ -1,12 +1,12 @@
 <script setup>
 import navBar from './components/navBar.vue';
-import logIn from './components/logIn.vue';
+import register from './components/register.vue';
 </script>
 
 <template>
 
 <navBar/>
-<logIn/>
+<register/>
  
 </template>
 

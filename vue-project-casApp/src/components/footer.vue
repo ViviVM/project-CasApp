@@ -1,7 +1,7 @@
 <template>
-    <footer id="footer">
+    <footer id="footer" class="pb-4 pt-4">
         <div class="container">
-            <div class="row">
+            <div class="row text-center">
                 <div class="col-12 col-lg">
                     <a href="#">Team</a>
                 </div>
@@ -25,5 +25,9 @@ footer{
     background-color: #224156;
 }
 
+footer a {
+    text-decoration: none;
+    color: aliceblue;
+}
 
 </style>

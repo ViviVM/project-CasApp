@@ -38,7 +38,7 @@
             <tr>
                 <th scope="row">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
                     </div>
                 </th>
                 <td>
@@ -52,7 +52,7 @@
             <tr>
                 <th scope="row">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
                     </div>
                 </th>
                 <td>
@@ -63,7 +63,7 @@
             <tr>
                 <th scope="row">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
                     </div>
                 </th>
                 <td>

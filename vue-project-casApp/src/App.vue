@@ -8,7 +8,7 @@ import task from './components/task.vue'
 <template>
 
 <navBar/>
-
+<home/>
 <router-view/>
 
 <footer_vue/>

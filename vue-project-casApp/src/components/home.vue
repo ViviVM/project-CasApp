@@ -1,43 +1,112 @@
 <template>
-    <div class="container">
-        <h1 class="text-center">Improve and organize your household chores.</h1>
-        <div class="container text-center">
+    <div class="container.fluid container-home pb-5">
+        <h1 class="text-center mt-5 mb-5">Improve and organize your household chores.</h1>
+        <div class="container text-center mt-5 mb-5">
             <div class="row row-cols-3">
-                    <div class="col-sm-4">
+                    
+                    <div class="col-sm-3 col-md-2">
                         <div class="card">
-                        <div class="card-body">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
-                            <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-                            </svg>
-                        </div>
+                            <div class="card-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
+                                 </div>
+                                 <div>
+                                    <img src="../assets/aspiradora.png" alt="" class="card-img-top">
+                                 </div> 
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+
+                    <div class="col-sm-3 col-md-2">
                         <div class="card">
-                        <div class="card-body">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
-                            <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-                            </svg>
-                        </div>
+                            <div class="card-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
+                                 </div>
+                                 <div>
+                                    <img src="../assets/household.png" alt="" class="card-img-top">
+                                 </div> 
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+
+                    <div class="col-sm-3 col-md-2">
                         <div class="card">
-                        <div class="card-body">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
-                            <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-                            </svg>
-                        </div>
+                            <div class="card-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
+                                 </div>
+                                 <div>
+                                    <img src="../assets/plate.png" alt="" class="card-img-top">
+                                 </div> 
+                            </div>
                         </div>
                     </div>
+
+                    <div class="col-sm-3 col-md-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
+                                 </div>
+                                 <div>
+                                    <img src="../assets/clean.png" alt="" class="card-img-top">
+                                 </div> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 col-md-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
+                                 </div>
+                                 <div>
+                                    <img src="../assets/washing.png" alt="" class="card-img-top">
+                                 </div> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 col-md-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
+                                 </div>
+                                 <div>
+                                    <img src="../assets/pets.png" alt="" class="card-img-top">
+                                 </div> 
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <a class="btn btn-primary mb-5" type="button" href="/register">Start now</a>
             </div>
         </div>
 </template>
 
 <style scoped>
-svg{
-    color: aquamarine;
-   
+
+.container-home{
+    background-color: #224156;
 }
+
+.card{
+    background-color: #224156;
+}
+
+h1{
+    color: #65b8a6;
+}
+
+img{
+    height: 100px;
+    width: 100px;
+}
+
 </style>

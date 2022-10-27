@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import piniaPersist from 'pinia-plugin-persist'
 
 import App from './App.vue'
 import router from './router'
@@ -10,8 +11,10 @@ import 'bootstrap/dist/css/bootstrap.css'
 //import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
 
 const app = createApp(App)
+const pinia = createPinia()
+pinia.use(piniaPersist)
 
-app.use(createPinia())
+app.use(pinia)
 app.use(router)
 //app.use(BootstrapVue3)
 

@@ -1,3 +1,24 @@
+<script setup>
+
+import { ref } from 'vue';
+import { useUserStore } from "@/stores/user";
+import router from "@/router";
+
+const email = ref('');
+const password = ref('');
+
+const userStore = useUserStore();
+
+const login = async () => {
+  await userStore.login(email.value, password.value);
+
+  if (userStore.user && userStore.user.role === 'authenticated') {
+    await router.push('/task');
+  }
+};
+
+</script>
+
 <template>
     <div class="container-fluid">
       <div class="card mb-3 card" style="max-width: 540px;">
@@ -10,15 +31,15 @@
         <div class="col-sm-8 col-right">
           <div class="card-body">
             <h1 class="card-title">Log In</h1>
-            <form class="form-signin">  
+            <form class="form-signin" @submit.prevent="login">
               <div class="mb-3">
                 <label for="inputEmail1" class="form-signin-label">Email address</label>
-                <input type="email" class="form-control" id="inputEmail1" placeholder="Email Addres" required autofocus>
+                <input v-model="email"  type="email" class="form-control" id="inputEmail1" placeholder="Email Addres" required autofocus>
               </div>
   
               <div class="mb-3">
                 <label for="inputPassword" class="form-signin-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword" placeholder="********" required>
+                <input v-model="password" type="password" class="form-control" id="inputPassword" placeholder="********" required>
                 <div id="PasswordHelp" class="form-text">Your password must be 8-20 characters long, contain letters and numbers, and must not
                 contain spaces, special characters, or emoji.</div>
               </div>

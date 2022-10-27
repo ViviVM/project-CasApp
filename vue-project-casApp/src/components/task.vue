@@ -1,3 +1,39 @@
+<script setup>
+
+import {ref, onBeforeMount} from 'vue';
+import { useUserStore } from "@/stores/user";
+import { useTaskStore } from "@/stores/task";
+
+const userStore = useUserStore();
+const taskStore = useTaskStore();
+const tasks = ref([]);
+
+onBeforeMount( async () => {
+  tasks.value = await taskStore.fetchTasks();
+
+  tasks.value.map(async task => {
+
+    task.dueDate = Date.parse(task.dueDate);
+    task.dueDate = new Date(task.dueDate)
+        .toISOString()
+        .split('T')[0];
+
+    const userProfile = await userStore.fetchProfile(task.userId);
+    task.username = userProfile.username;
+
+    return task;
+  });
+});
+
+function checkTask(value) {
+  const taskId = value.target.id;
+  const valueCheck = value.target.checked;
+
+  taskStore.updateTask(taskId, valueCheck);
+}
+
+</script>
+
 <template>
     <div class="container-sm">
         <h1 class="text-center mt-4 mb-4">Task</h1>
@@ -36,48 +72,20 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
-                    </div>
-                </th>
-                <td>
-                    <a href="#" class="link-info">Clean home</a>
-                </td>
-                <td>@cris @vivi</td>
-                <td>
-                    <input type="date">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
-                    </div>
-                </th>
-                <td>
-                    <a href="#" class="link-info">Clean bathroom</a>
-                </td>
-                <td>@Vivi</td>
-                <td>
-                    <input type="date">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
-                    </div>
-                </th>
-                <td>
-                    <a href="#" class="link-info">Clean kitchen</a>
-                </td>
-                <td>@Cris</td>
-                <td>
-                    <input type="date">
-                </td>
-            </tr>
+              <tr v-for="task in tasks" :class="'row-bg-'+task.category">
+                  <td scope="row" >
+                      <div class="form-check">
+                          <input :id="task.id" @change="checkTask($event)" class="form-check-input" type="checkbox" v-model="task.done" id="checkboxNoLabel" aria-label="...">
+                      </div>
+                  </td>
+                  <td>
+                      <a href="#" class="link-info">{{ task.name }}</a>
+                  </td>
+                  <td>{{ task.username }}</td>
+                  <td>
+                      <input type="date" :value="task.dueDate" />
+                  </td>
+              </tr>
             </tbody>
         </table>
     </div>
@@ -88,6 +96,14 @@
 .btn a {
     color: aliceblue;
     text-decoration: none;
+}
+
+.row-bg-kitchen {
+  background-color: #373b3e;
+}
+
+.row-bg-pet {
+  background-color: #315850;
 }
 
 </style>

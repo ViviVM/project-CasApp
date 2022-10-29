@@ -27,7 +27,7 @@ export const useUserStore = defineStore("user", {
             if (error) throw error;
             if (data) {
                 this.user = data.user;
-                await this.updateProfile(this.user, userName)
+                await this.updateProfile(userName)
             }
         },
         async login(email, password) {
@@ -38,9 +38,9 @@ export const useUserStore = defineStore("user", {
             if (error) throw error;
             if (data) this.user = data.user;
         },
-        async updateProfile(user, userName) {
+        async updateProfile(userName) {
             const updates = {
-                id: user.id,
+                id: this.user.id,
                 username: userName,
                 updated_at: new Date(),
             };
@@ -48,7 +48,8 @@ export const useUserStore = defineStore("user", {
             let { data, error } = await supabase
                 .from('profiles')
                 .upsert(updates)
-                .select();
+                .select()
+                .eq('id', this.user.id);
             if (error) throw error;
             if (data && data.length > 0) this.profile = data[0];
         },

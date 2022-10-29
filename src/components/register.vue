@@ -6,10 +6,11 @@ import router from "@/router";
 
 const email = ref('');
 const password = ref('');
-const userName = ref('');
+const userName = ref(''); 
+
 const userStore = useUserStore();
 
-const signUp = async () => {
+async function signUp () {
   await userStore.signUp(email.value, password.value, userName.value);
 
   if (userStore.user && userStore.user.role === 'authenticated') {

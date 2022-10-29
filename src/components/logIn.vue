@@ -9,7 +9,7 @@ const password = ref('');
 
 const userStore = useUserStore();
 
-const login = async () => {
+async function login() {
   await userStore.login(email.value, password.value);
 
   if (userStore.user && userStore.user.role === 'authenticated') {
@@ -65,7 +65,7 @@ const login = async () => {
     
   <style scoped>
   h1{
-    color: #224156;;
+    color: #224156;
     text-align: center;
   }
   

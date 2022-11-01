@@ -13,7 +13,7 @@ async function login() {
   await userStore.login(email.value, password.value);
 
   if (userStore.user && userStore.user.role === 'authenticated') {
-    await router.push('/task');
+     router.push({path: "/login"});
   }
 };
 
@@ -21,6 +21,10 @@ async function login() {
 
 <template>
     <div class="container-fluid">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <a href="/register" type="button" class="btn btn-primary"> Register</a>
+        <a href="/logIn" type="button" class="btn btn-primary">Log In</a>
+      </div>
       <div class="card mb-3 card" style="max-width: 540px;">
       <div class="row g-0">
         <div class="col-sm-4 col-left position-relative">

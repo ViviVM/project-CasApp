@@ -9,7 +9,8 @@ const taskStore = useTaskStore();
 const tasks = ref([]);
 
 onBeforeMount( async () => {
-  tasks.value = await taskStore.fetchTasks();
+    const userId = userStore.profile.id;
+  tasks.value = await taskStore.fetchTasks(userId);
 
   tasks.value.map(async task => {
 
@@ -31,6 +32,12 @@ function checkTask(value) {
 
   taskStore.updateTask(taskId, valueCheck);
 }
+
+function deleteTask(id){
+  this.tasks.value.splice(posTask,1);
+  task.push(taskRemoved[0]);
+}
+
 
 </script>
 
@@ -85,6 +92,9 @@ function checkTask(value) {
                   <td>
                       <input type="date" :value="task.dueDate" />
                   </td>
+                  <td>
+                    <a href="/task" type="button" class="btn-close" disabled aria-label="Close" value="delete" @click="deleteTask (task.id)"></a>
+                 </td>
               </tr>
             </tbody>
         </table>
@@ -99,7 +109,7 @@ function checkTask(value) {
 }
 
 .row-bg-kitchen {
-  background-color: #373b3e;
+  background-color:bisque;
 }
 
 .row-bg-pet {

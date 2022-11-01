@@ -1,5 +1,19 @@
 <script setup>
 
+import router from "@/router";
+import { useUserStore } from "@/stores/user";
+
+
+const userStore = useUserStore();
+
+async function logOut () {
+  await userStore.signOut();
+
+  if (userStore.user === null) {
+    await router.push('/');
+  }
+};
+
 </script>
 
 <template>
@@ -22,7 +36,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">About</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" v-if="userStore.user !== null">
             <a class="nav-link dropdown-toggle text-user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -32,7 +46,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
               <li><a class="dropdown-item active" href="#">Profile</a></li>
-              <li><a class="dropdown-item " href="#" @click="$store.commit('logout')">Log Out</a></li>
+              <li><a class="dropdown-item " href="#" @click="logOut">Log Out</a></li>
             </ul>
           </li>
       </ul>

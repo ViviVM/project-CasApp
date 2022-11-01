@@ -1,10 +1,11 @@
 <script setup>
-import home from './components/home.vue'
-import task from './components/task.vue'
+import navBar from './components/navBar.vue';
+
 </script>
 
 <template>
-    <home/>
+            <navBar/>
+
     <router-view/>
 </template>
 

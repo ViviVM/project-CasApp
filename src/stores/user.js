@@ -10,8 +10,8 @@ export const useUserStore = defineStore("user", {
 
     actions: {
         async fetchUser() {
-            const user = await supabase.auth.getUser();
-            this.user = user;
+            const data = await supabase.auth.getUser();
+            this.user = data.user;
         },
         async fetchUsers() {
             const { data, error } = await supabase
@@ -30,14 +30,28 @@ export const useUserStore = defineStore("user", {
                 await this.updateProfile(userName)
             }
         },
+
         async login(email, password) {
             const { data, error } = await supabase.auth.signInWithPassword({
                 email: email,
                 password: password,
             });
             if (error) throw error;
-            if (data) this.user = data.user;
+            if (data) {
+                this.user = data.user;
+                this.profile = await this.fetchProfile(this.user.id);
+            }
         },
+
+        async signOut() {
+            let { error } = await supabase.auth.signOut()
+            if (error) throw error
+            else {
+                this.user = null;
+                this.profile = null;
+            }
+          },
+
         async updateProfile(userName) {
             const updates = {
                 id: this.user.id,

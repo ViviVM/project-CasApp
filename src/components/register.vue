@@ -2,7 +2,7 @@
 
 import { ref } from 'vue';
 import { useUserStore } from "@/stores/user";
-import router from "@/router";
+import { useRouter } from 'vue-router';
 
 const email = ref('');
 const password = ref('');
@@ -10,22 +10,29 @@ const userName = ref('');
 
 const userStore = useUserStore();
 
+const router = useRouter();
+
 async function signUp () {
   await userStore.signUp(email.value, password.value, userName.value);
 
   if (userStore.user && userStore.user.role === 'authenticated') {
-    await router.push('/task');
+     router.push('/logIn');
   }
 };
 
 </script>
 
 <template>
-  <div class="container">
-    <div class="card mb-3 card" style="max-width: 540px;">
+  <div class="container-fluid container-principal pt-4 pb-4">
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <a href="/register" type="button" class="btn btn-primary"> Register</a>
+        <a href="/logIn" type="button" class="btn btn-primary">Log In</a>
+    </div>
+    <div class="card mb-3 card " style="max-width: 940px;">
     <div class="row g-0">
       <div class="col-sm-4 col-left position-relative">
-        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="150" fill="currentColor" class="bi bi-triangle-half position-absolute top-50 start-50 translate-middle" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="150" fill="currentColor" class="bi bi-triangle-half position-absolute top-50 start-50 translate-middle img-fluid" viewBox="0 0 16 16">
           <path d="M8.065 2.016A.13.13 0 0 0 8.002 2v11.983l6.856.017a.12.12 0 0 0 .066-.017.162.162 0 0 0 .054-.06.176.176 0 0 0-.002-.183L8.12 2.073a.146.146 0 0 0-.054-.057zm-1.043-.45a1.13 1.13 0 0 1 1.96 0l6.856 11.667c.458.778-.091 1.767-.98 1.767H1.146c-.889 0-1.437-.99-.98-1.767L7.022 1.566z"/>
         </svg>
       </div>
@@ -54,19 +61,24 @@ async function signUp () {
             <div class="mb-3 form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Remember me </label>
-          </div>
+            </div>
             <button type="submit" class="btn btn-primary btn-lg btn-block">Create Account</button>
           </form>
         </div>
+       </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
   
 <style scoped>
+
+.container-principal{
+  background-color: #224156;
+}
+
 h1{
-  color: #224156;;
+  color: #224156;
   text-align: center;
 }
 

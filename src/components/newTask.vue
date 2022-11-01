@@ -9,7 +9,10 @@ const userStore = useUserStore();
 const users = ref([]);
 
 onBeforeMount( async () => {
-  users.value = await userStore.fetchUsers();
+    //users.value = await userStore.fetchUsers();
+
+    const profile = userStore.profile;
+    users.value.push(profile);
 });
 
 const taskStore = useTaskStore();
@@ -52,8 +55,8 @@ function cancel() {
         </li>
         <li class="list-group-item">
 
-            <select v-model="userSelected" class="form-select" id="inputGroupSelect01" v-for="user in users">
-                <option :value="user.id">{{ user.username }}</option>
+            <select v-model="userSelected" class="form-select" id="inputGroupSelect01">
+                <option v-for="user in users" :value="user.id">{{ user.username }}</option>
             </select>
         </li>
         <li class="list-group-item">

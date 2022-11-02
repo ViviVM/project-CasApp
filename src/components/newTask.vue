@@ -20,14 +20,11 @@ const taskStore = useTaskStore();
 const categorySelected = ref('');
 const taskName = ref('');
 const userSelected = ref('');
-const whenDate = ref('');
 const dueDate = ref('');
 
 async function saveTask() {
-  const data = await taskStore.createTask(categorySelected.value, taskName.value, userSelected.value, whenDate.value, dueDate.value);
-  if(data) {
+    await taskStore.createTask(categorySelected.value, taskName.value, userSelected.value, dueDate.value);
     router.push('/task');
-  }
 }
 
 function cancel() {
@@ -42,7 +39,7 @@ function cancel() {
     <div class="card" style="width: 18rem;">
         <div class="card-header">
             <select v-model="categorySelected" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option selected>Category</option>
+                <option value="">Category</option>
                 <option value="kitchen">Kitchen</option>
                 <option value="bathroom">Bathroom</option>
                 <option value="pet">Pet</option>
@@ -56,7 +53,7 @@ function cancel() {
         <li class="list-group-item">
 
             <select v-model="userSelected" class="form-select" id="inputGroupSelect01" >
-                <option> Select owner</option> 
+                <option value="">Select owner</option> 
                 <option v-for="user in users" :value="user.id">{{ user.username }}</option>
             </select>
         </li>

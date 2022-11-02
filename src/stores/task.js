@@ -15,31 +15,26 @@ export const useTaskStore = defineStore("task", {
             if (error) throw error;
             if (data) return data;
         },
-        async createTask(categorySelected, taskName, userSelected, whenDate, dueDate) {
-            const {data, error} = await supabase
+        async createTask(categorySelected, taskName, userSelected, dueDate) {
+            const {error} = await supabase
                 .from('tasks')
                 .insert({
                     name: taskName,
                     dueDate: new Date(dueDate),
                     userId: userSelected,
                     category: categorySelected,
-                })
-                .select();
+                });
             if (error) throw error;
-            if (data) return data[0];
         },
         async updateTask(idTask, checked) {
-            const updates = {
-                done: checked,
-            };
-
-            const {data, error} = await supabase
+            const {error} = await supabase
                 .from('tasks')
-                .update(updates)
+                .update({
+                    done: checked,
+                })
                 .eq('id', idTask);
 
             if (error) throw error;
-            if (data) return data[0];
         },
         async deleteTask(idTask) {
             const { error } = await supabase

@@ -26,11 +26,11 @@ onBeforeMount( async () => {
     }); 
 });
 
-function checkTask(value) {
+async function checkTask(value) {
   const taskId = value.target.id;
   const valueCheck = value.target.checked;
 
-  taskStore.updateTask(taskId, valueCheck);
+  await taskStore.updateTask(taskId, valueCheck);
 }
 
 async function deleteTask(id){

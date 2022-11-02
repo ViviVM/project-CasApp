@@ -1,9 +1,13 @@
-$primary: #65b8a6;
 
+$blue:#f00; 
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
+:root{
+    --vivEana: #333333;
+}
 
 
-
-
+.btn-primary{
+    background-color: var(--vivEana);
+}

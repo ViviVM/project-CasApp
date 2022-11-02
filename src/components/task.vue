@@ -3,27 +3,27 @@
 import {ref, onBeforeMount} from 'vue';
 import { useUserStore } from "@/stores/user";
 import { useTaskStore } from "@/stores/task";
+import { useRouter } from 'vue-router';
 
 const userStore = useUserStore();
 const taskStore = useTaskStore();
+
+const router = useRouter();
+
 const tasks = ref([]);
 
 onBeforeMount( async () => {
+  
     const userId = userStore.profile.id;
-  tasks.value = await taskStore.fetchTasks(userId);
+    tasks.value = await taskStore.fetchTasks(userId);
 
-  tasks.value.map(async task => {
+    tasks.value.map(async task => {
+    
+        const userProfile = await userStore.fetchProfile(task.userId);
+        task.username = userProfile.username;
 
-    task.dueDate = Date.parse(task.dueDate);
-    task.dueDate = new Date(task.dueDate)
-        .toISOString()
-        .split('T')[0];
-
-    const userProfile = await userStore.fetchProfile(task.userId);
-    task.username = userProfile.username;
-
-    return task;
-  });
+        return task;
+    }); 
 });
 
 function checkTask(value) {
@@ -33,9 +33,9 @@ function checkTask(value) {
   taskStore.updateTask(taskId, valueCheck);
 }
 
-function deleteTask(id){
-  this.tasks.value.splice(posTask,1);
-  task.push(taskRemoved[0]);
+async function deleteTask(id){
+    await taskStore.deleteTask(id);
+    router.go();
 }
 
 
@@ -90,10 +90,11 @@ function deleteTask(id){
                   </td>
                   <td>{{ task.username }}</td>
                   <td>
-                      <input type="date" :value="task.dueDate" />
+                    <p>{{ task.dueDate }}</p>
+                     
                   </td>
                   <td>
-                    <a href="/task" type="button" class="btn-close" disabled aria-label="Close" value="delete" @click="deleteTask (task.id)"></a>
+                    <a href="#" type="button" class="btn-close" disabled aria-label="Close" value="delete" @click="deleteTask (task.id)"></a>
                  </td>
               </tr>
             </tbody>

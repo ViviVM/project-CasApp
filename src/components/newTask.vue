@@ -23,8 +23,8 @@ const userSelected = ref('');
 const whenDate = ref('');
 const dueDate = ref('');
 
-function saveTask() {
-  const data = taskStore.createTask(categorySelected.value, taskName.value, userSelected.value, whenDate.value, dueDate.value);
+async function saveTask() {
+  const data = await taskStore.createTask(categorySelected.value, taskName.value, userSelected.value, whenDate.value, dueDate.value);
   if(data) {
     router.push('/task');
   }
@@ -55,15 +55,12 @@ function cancel() {
         </li>
         <li class="list-group-item">
 
-            <select v-model="userSelected" class="form-select" id="inputGroupSelect01">
+            <select v-model="userSelected" class="form-select" id="inputGroupSelect01" >
+                <option> Select owner</option> 
                 <option v-for="user in users" :value="user.id">{{ user.username }}</option>
             </select>
         </li>
         <li class="list-group-item">
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-default"> When</span>
-                <input v-model="whenDate" type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default"> Due Date </span>
                 <input v-model="dueDate" type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">

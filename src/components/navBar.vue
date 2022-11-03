@@ -84,12 +84,12 @@ async function logOut() {
               </svg>
               User
             </a>
-            <ul class="dropdown-menu dropdown-menu-dark">
+              <ul class="dropdown-menu dropdown-menu-dark">
               <li><a class="dropdown-item active" href="#">Profile</a></li>
               <li>
                 <a class="dropdown-item" href="#" @click="logOut">Log Out</a>
               </li>
-            </ul>
+            </ul> 
           </li>
         </ul>
       </div>

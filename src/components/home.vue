@@ -6,20 +6,30 @@ import footer_vue from './footer.vue';
 
 <template>
    
-    <div class="container-fluid container-principal text-center pt-5 pb-5">
+   <h1 class="title">Carousel </h1>
+   <div class="owl-container">
+    <div class="owl-carousel oul-theme">
+        <div class="item"><h4>1</h4></div>
+        <div class="item"><h4>2</h4></div>
+        <div class="item"><h4>3</h4></div>
+        <div class="item"><h4>4</h4></div>
+        <div class="item"><h4>5</h4></div>
+    </div>
+   </div>
+    <!-- <div class="container-fluid container-principal text-center pt-5 pb-5">
         
-        <h1 class="text-center pt-5 pb-5">Improve and organize your household chores.</h1>
+    <h1 class="text-center pt-5 pb-5">Improve and organize your household chores.</h1>
         
     <div class="container text-center pt-5 pb-5">
         
-        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
 
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="800">
                 <div class="carousel-caption d-none d-md-block"></div>
             </div>
 
-            <div class="carousel-item active" >
+            <div class="carousel-item active" data-bs-interval="1000" >
                 <div class="row">
 
                     <div class="col col-md-2">
@@ -28,7 +38,7 @@ import footer_vue from './footer.vue';
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
                                 </div>
-                                <div>
+                                <div class="carousel-item active" data-bs-interval="10000">
                                     <img src="../assets/plate.png" alt="" class="card-img-top">
                                 </div> 
                             </div>     
@@ -41,7 +51,7 @@ import footer_vue from './footer.vue';
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
                                 </div>
-                                <div>
+                                <div class="carousel-item active" data-bs-interval="1000">
                                     <img src="../assets/aspiradora.png" alt="" class="card-img-top">
                                 </div> 
                             </div>     
@@ -54,7 +64,7 @@ import footer_vue from './footer.vue';
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
                                 </div>
-                                <div>
+                                <div class="carousel-item active" data-bs-interval="10000">
                                     <img src="../assets/drying.png" alt="" class="card-img-top">
                                 </div> 
                             </div>     
@@ -67,7 +77,7 @@ import footer_vue from './footer.vue';
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
                                 </div>
-                                <div>
+                                <div data-bs-interval="10000">
                                     <img src="../assets/washing.png" alt="" class="card-img-top">
                                 </div> 
                             </div>     
@@ -80,7 +90,7 @@ import footer_vue from './footer.vue';
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
                                 </div>
-                                <div>
+                                <div data-bs-interval="10000">
                                     <img src="../assets/pets.png" alt="" class="card-img-top">
                                 </div> 
                             </div>     
@@ -89,7 +99,7 @@ import footer_vue from './footer.vue';
                 </div>
             </div>
         
-            <div class="carousel-item">
+            <div class="carousel-item" data-bs-interval="800">
                 <div class="row">
 
                     <div class="col col-md-2">
@@ -151,7 +161,7 @@ import footer_vue from './footer.vue';
                                     <input class="form-check-input" type="checkbox" value="" id="checkboxNoLabel" aria-label="...">
                                 </div>
                                 <div>
-                                    <img src="../assets/pets.png" alt="" class="card-img-top">
+                                    <img src="../assets/aspiradora.png" alt="" class="card-img-top">
                                 </div> 
                             </div>     
                         </div>     
@@ -161,11 +171,9 @@ import footer_vue from './footer.vue';
 
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
             </button>
 
         </div>
@@ -176,7 +184,7 @@ import footer_vue from './footer.vue';
         </div>
 
          </div>
-    </div>
+    </div> -->
     <footer_vue/>
 </template>
 

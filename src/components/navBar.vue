@@ -1,16 +1,18 @@
 <script setup>
 
-import router from "@/router";
+import { useRouter } from 'vue-router';
 import { useUserStore } from "@/stores/user";
 
 
 const userStore = useUserStore();
 
+const router = useRouter();
+
 async function logOut () {
   await userStore.signOut();
 
   if (userStore.user === null) {
-    await router.push('/');
+    router.push('/');
   }
 };
 

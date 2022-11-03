@@ -26,7 +26,6 @@ export const useUserStore = defineStore("user", {
             });
             if (error) throw error;
             if (data) {
-                this.user = data.user;
                 await this.updateProfile(userName)
             }
         },
@@ -53,19 +52,15 @@ export const useUserStore = defineStore("user", {
           },
 
         async updateProfile(userName) {
-            const updates = {
-                id: this.user.id,
-                username: userName,
-                updated_at: new Date(),
-            };
-
-            let { data, error } = await supabase
+            let { error } = await supabase
                 .from('profiles')
-                .upsert(updates)
-                .select()
+                .upsert({
+                    id: this.user.id,
+                    username: userName,
+                    updated_at: new Date(),
+                })
                 .eq('id', this.user.id);
             if (error) throw error;
-            if (data && data.length > 0) this.profile = data[0];
         },
         async fetchProfile(userId) {
             let { data, error } = await supabase

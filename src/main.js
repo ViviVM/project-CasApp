@@ -9,7 +9,7 @@ import router from './router'
 
 import 'bootstrap/dist/css/bootstrap.css' 
 import 'bootstrap/dist/js/bootstrap.js'
-//import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
+
 
 const app = createApp(App)
 const pinia = createPinia()

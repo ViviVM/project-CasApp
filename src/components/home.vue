@@ -310,33 +310,31 @@
                 </div>
               </div>
               <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselPrincipal"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselPrincipal"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-
+                class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#carouselPrincipal"
+                  data-bs-slide="prev"
+                  >
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselPrincipal"
+                data-bs-slide="next"
+                  >
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
             </div>
           </div>
         </div>
       </div>
-      
     </div>
-    <div class="d-grid gap-2 col-6 mx-auto pb-5 pt-5">
-      <a class="btn btn-primary mb-5 btn-principal" type="button" href="/register">Start now</a>
-    </div>
+      <div class="d-grid gap-2 col-6 mx-auto pb-5 pt-5">
+        <a class="btn btn-primary mb-5 btn-principal" type="button" href="/register">Start now</a>
+      </div>
   </div>
 </template>
 

@@ -37,7 +37,7 @@ function cancel() {
 </script>
 
 <template>
-  <div class="container-fluid container-principal d-flex justify-content-center ">
+  <div class="container-fluid container-principal d-flex justify-content-center pt-5 pb-5">
     <div class="w-50">
       <div class="card mb-4 mt-4 w-100 border-success" style="width: 540px">
         <img
@@ -62,7 +62,7 @@ function cancel() {
           <li class="list-group-item">
             <input
               v-model="taskName"
-              class="form-control form-color"
+              class="form-control form-color-task"
               type="text"
               placeholder="Task name"
             />
@@ -70,10 +70,10 @@ function cancel() {
           <li class="list-group-item">
             <select
               v-model="userSelected"
-              class="form-select"
+              class="form-select form-color-owner"
               id="inputGroupSelect01"
             >
-              <option class="owner" value="">Select owner</option>
+              <option value="">Select owner</option>
               <option v-for="user in users" :value="user.id">
                 {{ user.username }}
               </option>
@@ -87,7 +87,7 @@ function cancel() {
               <input
                 v-model="dueDate"
                 type="date"
-                class="form-control form-color"
+                class="form-control form-color-date"
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
               />
@@ -99,18 +99,20 @@ function cancel() {
           </li>
         </ul>
         <div class="card-body">
-          <input
+          <div class="d-grid gap-2 d-md-block">
+            <input
             class="btn btn-primary"
             type="button"
             value="Save"
             @click="saveTask"
           />
           <input
-            class="btn btn-secundary"
+            class="btn btn-outline-danger"
             type="button"
             value="Cancel"
             @click="cancel"
           />
+          </div>
         </div>
       </div>
     </div>
@@ -129,15 +131,26 @@ img {
 
 .card{
 max-width: 340px;
-background: honeydew;
+background-color: honeydew;
 }
 
-.form-color{
-    background-color:honeydew;
+.list-group-item{
+    background-color: honeydew;
+}
+
+.form-color-task{
+    background-color:rgb(255, 251, 195);
 }
 
 .form-color-category{
-    background-color:rgb(206, 251, 206);
+    background-color:rgb(247, 215, 231);
+}
+
+.form-color-owner{
+    background-color:rgb(208, 248, 234);
+}
+.form-color-date{
+    background-color: rgb(251, 203, 186);
 }
 
 </style>

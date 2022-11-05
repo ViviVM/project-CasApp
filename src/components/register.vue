@@ -14,10 +14,7 @@ const router = useRouter();
 
 async function signUp () {
   await userStore.signUp(email.value, password.value, userName.value);
-
-  if (userStore.user && userStore.user.role === 'authenticated') {
-     router.push('/login');
-  }
+  router.push('/login');
 };
 
 </script>

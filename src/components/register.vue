@@ -16,7 +16,7 @@ async function signUp () {
   await userStore.signUp(email.value, password.value, userName.value);
 
   if (userStore.user && userStore.user.role === 'authenticated') {
-     router.push('/logIn');
+     router.push('/login');
   }
 };
 
